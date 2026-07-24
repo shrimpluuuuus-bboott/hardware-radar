@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>新品速递 · 发布会焦点速递 · Galaxy Unpacked July 2026</title>
+<style>
+:root{--bg:#f8f8f6;--card:#fff;--text:#18181a;--sub:#6b6b70;--border:#e4e4e8;--line:#ececf0;--up:#1a6e44;--up-bg:#e6f4ec;--down:#9a3520;--down-bg:#fceee9;--flat:#5a5a62;--flat-bg:#f0f0f3;--brand:#1f4fd8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Helvetica Neue",Arial,sans-serif;font-size:15px;line-height:1.6}
+.tabs{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1.5px solid var(--border);display:flex;padding:0 28px;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{padding:14px 18px;border:none;background:none;cursor:pointer;font-size:13.5px;font-weight:500;color:var(--sub);border-bottom:2.5px solid transparent;white-space:nowrap}
+.tab.active{color:var(--text);border-bottom-color:var(--brand);font-weight:700}
+.pane{display:none;max-width:1060px;margin:0 auto;padding:36px 24px 64px}
+.pane.active{display:block}
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:28px}
+.kpi{background:var(--card);border-radius:12px;padding:18px 16px;border:1px solid var(--border);text-align:center}
+.kpi .num{font-size:22px;font-weight:800;letter-spacing:-.02em;margin-bottom:4px;color:var(--brand);font-variant-numeric:tabular-nums}
+.kpi .desc{font-size:11px;color:var(--sub)}
+.hl-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px}
+.hl{background:var(--card);border-radius:12px;padding:18px 20px;border:1px solid var(--border)}
+.hl .rank{font-size:28px;font-weight:800;margin-bottom:6px;color:var(--brand)}
+.hl h4{font-size:14px;font-weight:700;margin-bottom:4px}
+.hl p{font-size:13px;color:var(--sub);line-height:1.5}
+.section-title{font-size:12px;font-weight:700;color:var(--sub);letter-spacing:.08em;text-transform:uppercase;margin:30px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px}
+.hero-card{background:var(--card);border-radius:14px;padding:22px 20px;border:1px solid var(--border)}
+.hero-card h3{font-size:15px;font-weight:700;margin-bottom:14px;color:var(--sub)}
+.spec-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+.spec-row:last-child{border:none}
+.spec-row .k{color:var(--sub)}
+.spec-row .v{font-weight:600;text-align:right;max-width:58%}
+.delta{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:600;padding:2px 9px;border-radius:20px;white-space:nowrap}
+.delta.up{color:var(--up);background:var(--up-bg)}
+.delta.down{color:var(--down);background:var(--down-bg)}
+.delta.flat{color:var(--flat);background:var(--flat-bg)}
+.diff-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:12px;overflow:hidden;border:1px solid var(--border);margin-bottom:28px;font-size:13.5px}
+.diff-table th{background:#f3f3f5;padding:10px 14px;text-align:left;font-weight:700;color:var(--sub);font-size:12px}
+.diff-table td{padding:10px 14px;border-top:1px solid var(--line);vertical-align:middle}
+.ai-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px}
+.ai-card{background:var(--card);border-radius:12px;padding:18px;border:1px solid var(--border)}
+.ai-card .label{font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--sub);margin-bottom:8px}
+.ai-card p{font-size:13.5px;line-height:1.55}
+.swot{display:grid;grid-template-columns:1fr 1fr;gap:2px;border-radius:12px;overflow:hidden;margin-bottom:28px;border:1px solid var(--border)}
+.swot-cell{padding:18px 16px;background:var(--card)}
+.swot-cell:nth-child(1){background:#e8f4ee}
+.swot-cell:nth-child(2){background:#fce9e6}
+.swot-cell:nth-child(3){background:#e8eeff}
+.swot-cell:nth-child(4){background:#fff8e6}
+.swot-cell h4{font-size:12px;font-weight:800;letter-spacing:.06em;margin-bottom:8px}
+.swot-cell ul{list-style:none;padding:0}
+.swot-cell li{font-size:13px;padding:3px 0 3px 14px;position:relative;line-height:1.4}
+.swot-cell li::before{content:"▸";position:absolute;left:0;font-size:10px;top:5px}
+.rated{position:relative;cursor:help;border-bottom:1px dotted var(--border);display:inline-block}
+.rated .tip{position:absolute;left:50%;bottom:calc(100% + 8px);transform:translateX(-50%) translateY(4px);width:240px;white-space:normal;word-break:break-all;background:#1d1d1f;color:#fff;font-size:12px;line-height:1.5;text-align:left;padding:9px 12px;border-radius:9px;opacity:0;visibility:hidden;transition:opacity .18s ease,transform .18s ease;z-index:9999;pointer-events:none;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.rated .tip b{color:#ffd9a8;font-weight:600}
+.rated .tip::after{content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:#1d1d1f}
+.rated:hover .tip{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.stars{color:#f5a623;font-size:14px;letter-spacing:1px}
+.notice{background:#fffbee;border:1px solid #f5e07a;border-radius:10px;padding:14px 18px;font-size:13px;color:#5a4a00;margin-bottom:20px}
+.upgrade-list{list-style:none;padding:0;margin-bottom:28px}
+.upgrade-list li{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 18px;margin-bottom:10px;font-size:13.5px;display:flex;gap:12px;align-items:flex-start}
+.upgrade-list li .badge{flex:none;font-size:11px;font-weight:700;color:#fff;background:var(--brand);padding:2px 9px;border-radius:8px;margin-top:1px}
+.chart-wrap{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;margin-bottom:28px}
+.chart-wrap canvas{max-width:100%}
+.compare-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin-bottom:8px}
+.compare-item{text-align:center}
+.compare-item .compare-label{font-size:11.5px;color:var(--sub);font-weight:700;margin-bottom:8px}
+.compare-item canvas{max-height:150px}
+.compare-note{font-size:11.5px;color:var(--sub);margin-top:6px;line-height:1.5}
+@media(max-width:640px){.compare-grid{grid-template-columns:repeat(2,1fr)}}
+.mini-table{width:100%;border-collapse:collapse;font-size:13px;background:var(--card);border-radius:10px;overflow:hidden;border:1px solid var(--border);margin-top:14px}
+.mini-table td{padding:8px 14px;border-top:1px solid var(--line)}
+.mini-table tr:first-child td{border:none}
+.mini-table td:first-child{color:var(--sub);width:42%}
+.src-list{font-size:13px;color:var(--sub);line-height:1.8;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin-bottom:28px}
+.src-list a{color:var(--brand);text-decoration:none}
+details{margin-bottom:28px}
+summary{cursor:pointer;font-size:13px;font-weight:700;color:var(--sub);padding:10px 0}
+.param-table{width:100%;border-collapse:collapse;font-size:13px;background:var(--card);border-radius:10px;overflow:hidden;border:1px solid var(--border);margin-top:10px}
+.param-table td{padding:8px 14px;border-top:1px solid var(--line)}
+.param-table tr:first-child td{border:none}
+.param-table td:first-child{color:var(--sub);width:38%}
+.report-cover{padding:36px 4px 28px;margin-bottom:32px;border-bottom:1px solid var(--line)}
+.report-cover .cover-brand{font-size:11px;font-weight:700;color:var(--sub);letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
+.report-cover .cover-title{font-size:38px;font-weight:800;letter-spacing:-.02em;line-height:1.15;color:var(--text);margin-bottom:16px}
+.report-cover .cover-meta{font-size:13px;color:var(--sub);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.report-cover .cover-sep{opacity:.4}
+.report-cover .cover-date{font-weight:600;color:var(--text)}
+.product-title{font-size:26px;font-weight:800;letter-spacing:-.01em;color:var(--text);margin:8px 0 18px;line-height:1.25}
+.product-img-wrap{margin-bottom:20px;border-radius:14px;overflow:hidden;background:var(--card);border:1px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:220px;padding:16px}
+.product-img-wrap img{max-width:100%;max-height:340px;object-fit:contain;border-radius:8px;display:block}
+.product-img-wrap img[src=""]{display:none}
+.product-img-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--sub);font-size:13px;text-align:center;width:100%;min-height:180px}
+.product-img-placeholder .icon{font-size:36px;opacity:.35}
+.product-img-placeholder .hint{font-size:12px;color:var(--sub);opacity:.7;line-height:1.6}
+.product-img-wrap img:not([src=""])+.product-img-placeholder{display:none}
+.nav-btns{display:flex;justify-content:space-between;margin-top:30px;gap:12px}
+.nav-btns a{font-size:13px;font-weight:600;color:var(--brand);text-decoration:none;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 16px}
+.nav-btns a.disabled{color:var(--sub);opacity:.5;pointer-events:none}
+.price-table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--card);border-radius:12px;overflow:hidden;border:1px solid var(--border);margin-bottom:28px}
+.price-table th{background:#f3f3f5;padding:10px 14px;text-align:left;font-weight:700;color:var(--sub);font-size:12px}
+.price-table td{padding:10px 14px;border-top:1px solid var(--line)}
+.exposed-tag{display:inline-block;font-size:10px;font-weight:600;color:#9a6b00;background:#fff3d6;padding:1px 7px;border-radius:8px;margin-left:6px;vertical-align:middle}
+.hero-card.exposed h3{color:#9a6b00}
+.event-banner{background:linear-gradient(135deg,var(--brand) 0%,#12309e 100%);border-radius:18px;padding:28px 30px;margin-bottom:28px;display:flex;gap:24px;align-items:center;color:#fff}
+.event-banner-text{flex:1 1 auto;min-width:0}
+.event-banner-eyebrow{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:.75;margin-bottom:10px}
+.event-banner-headline{font-size:24px;font-weight:800;line-height:1.32;letter-spacing:-.01em;margin-bottom:8px}
+.event-banner-sub{font-size:13.5px;opacity:.85;line-height:1.6}
+.event-banner-img{flex:0 0 260px;border-radius:14px;overflow:hidden;background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;min-height:150px;padding:10px}
+.event-banner-img img{max-width:100%;max-height:200px;object-fit:contain;border-radius:8px;display:block}
+.event-banner-img img[src=""]{display:none}
+.event-banner-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#fff;font-size:12px;text-align:center;opacity:.85;width:100%;min-height:130px}
+.event-banner-placeholder .icon{font-size:30px;opacity:.7}
+.event-banner-placeholder .hint{font-size:11px;opacity:.8;line-height:1.5}
+.event-banner-img img:not([src=""])+.event-banner-placeholder{display:none}
+@media(max-width:640px){.report-cover .cover-title{font-size:28px}.report-cover{padding:24px 2px 20px}.hero-grid,.kpi-row,.hl-grid,.ai-grid,.swot{grid-template-columns:1fr}.pane{padding:20px 16px 48px}.tabs{padding:0 12px}.event-banner{flex-direction:column;padding:22px 20px}.event-banner-img{flex:none;width:100%}.event-banner-headline{font-size:20px}}
+</style>
+</head>
+<body>
+<nav class="tabs">
+  <button class="tab active" data-tab="0">📋 总览</button>
+  <button class="tab" data-tab="1">📱 Z Fold8 Ultra</button>
+  <button class="tab" data-tab="2">📱 Z Fold8</button>
+  <button class="tab" data-tab="3">📱 Z Flip8</button>
+  <button class="tab" data-tab="4">⌚ Watch Ultra2</button>
+  <button class="tab" data-tab="5">⌚ Watch9</button>
+  <button class="tab" data-tab="6">👓 智能眼镜</button>
+</nav>
+
+<!-- ==================== TAB 0 总览 ==================== -->
+<div class="pane active" id="pane0">
+  <div class="report-cover">
+    <div class="cover-brand">新品速递 · Product Flash</div>
+    <h1 class="cover-title">发布会焦点速递 · Galaxy Unpacked July 2026</h1>
+    <div class="cover-meta">
+      <span class="cover-date">2026-07-23</span>
+      <span class="cover-sep">·</span>
+      <span class="cover-count">本次发布会纳入 6 款新品</span>
+      <span class="cover-sep">·</span>
+      <span class="cover-dept">硬件测试技术部</span>
+    </div>
+  </div>
+
+  <div class="event-banner">
+    <div class="event-banner-text">
+      <div class="event-banner-eyebrow">📍 本周发布会</div>
+      <h2 class="event-banner-headline">7月22日21:00（北京时间），三星在英国伦敦举行 Galaxy Unpacked 发布会</h2>
+      <p class="event-banner-sub">14年来首次落地伦敦，一次性发布三款折叠屏手机、两款手表与首款智能眼镜</p>
+    </div>
+    <div class="event-banner-img">
+      <img src="https://img.yna.co.kr/etc/inner/CK/2026/07/22/ACK20260722003400881_09_i_P4.jpg" alt="发布会现场"/>
+      <div class="event-banner-placeholder">
+        <div class="icon">🎬</div>
+        <div>发布会图片待填入</div>
+        <div class="hint">打开此 HTML，找到 event-banner-img 里的<br>src="" 粘贴图片直链后保存刷新</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kpi-row">
+    <div class="kpi"><div class="num">6</div><div class="desc">本周新品总数（三星 Galaxy 系列）</div></div>
+    <div class="kpi"><div class="num">¥8,999</div><div class="desc">最低起售价（Z Flip8 12+256）</div></div>
+    <div class="kpi"><div class="num">¥14,999</div><div class="desc">最高起售价（Z Fold8 Ultra 12+256）</div></div>
+    <div class="kpi"><div class="num">5,000nit</div><div class="desc">Watch Ultra2 峰值亮度（智能手表首次）</div></div>
+  </div>
+
+  <div class="section-title">本周最大看点</div>
+  <div class="hl-grid">
+    <div class="hl"><div class="rank">01</div><h4>Galaxy Z 系列首款 Ultra 折叠屏</h4><p>Z Fold8 Ultra 以 8 英寸内屏、4.1mm 展开厚度、215g 重量成为最薄最轻的 Galaxy Z Fold，并首发 Flex Titanium 减折痕技术，定位直指高端生产力。</p></div>
+    <div class="hl"><div class="rank">02</div><h4>手表双旗舰：Ultra2 主打户外潜水</h4><p>Watch Ultra2 首发骁龙 Wear Elite 平台、800mAh 电池（较前代 +35%）、5000nit 峰值亮度、10ATM+IP69K+EN13319 潜水认证，是三星最强运动手表。</p></div>
+    <div class="hl"><div class="rank">03</div><h4>智能眼镜入局，与 Gentle Monster / Warby Parker 联名</h4><p>三星基于 Android XR 与 Gemini 推出智能眼镜，单次续航 9 小时、充电盒额外 7 次，内置摄像头，手势交互需配合 Watch9。</p></div>
+    <div class="hl"><div class="rank">04</div><h4>Agentic AI 成为全系主线</h4><p>Now Nudge、Gemini Notebook、FlexWindow Now Brief 等代理式 AI 贯穿折叠屏与手表，强调"无需展开/无需屏幕"的情境化协助。</p></div>
+  </div>
+
+  <div class="section-title">新品价格总表</div>
+  <table class="price-table">
+    <thead><tr><th>型号</th><th>品类</th><th>起售价</th><th>一句话定位</th></tr></thead>
+    <tbody>
+      <tr><td>Galaxy Z Fold8 Ultra</td><td>折叠屏手机</td><td>¥14,999（12+256）</td><td>Ultra 级大屏生产力旗舰</td></tr>
+      <tr><td>Galaxy Z Fold8</td><td>折叠屏手机</td><td>¥12,999（12+256）</td><td>宽屏影音新形态折叠</td></tr>
+      <tr><td>Galaxy Z Flip8</td><td>折叠屏手机</td><td>¥8,999（12+256）</td><td>最轻最薄翻盖 AI 手机</td></tr>
+      <tr><td>Galaxy Watch Ultra2</td><td>智能手表</td><td>¥5,299（LTE）</td><td>钛合金户外潜水旗舰</td></tr>
+      <tr><td>Galaxy Watch9</td><td>智能手表</td><td>¥2,499（蓝牙 40mm）</td><td>日常健康管理主力</td></tr>
+      <tr><td>Galaxy 智能眼镜</td><td>智能眼镜</td><td>待确认</td><td>Android XR + Gemini 免提 AI</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ==================== TAB 1 Z Fold8 Ultra ==================== -->
+<div class="pane" id="pane1">
+  <h2 class="product-title">Samsung Galaxy Z Fold8 Ultra</h2>
+  <div class="product-img-wrap">
+    <img src="https://images.samsung.com.cn/cn/smartphones/galaxy-z-fold8-ultra/buy/Q8_Global_Group_KV_Image_PC_1600x864_x.jpg?imbypass=true" alt="Galaxy Z Fold8 Ultra"/>
+    <div class="product-img-placeholder"><div class="icon">🖼️</div><div>产品图待填入</div><div class="hint">官网域名配额已用尽（JS空壳判定），未获取到可用图片直链。<br>打开此 HTML，找到本品 src="" 粘贴图片直链后保存刷新。</div></div>
+  </div>
+
+  <!-- ① Hero -->
+  <div class="hero-grid">
+    <div class="hero-card">
+      <h3>核心规格（官方确认）</h3>
+      <div class="spec-row"><span class="k">芯片</span><span class="v">骁龙 8 Elite Gen 5 for Galaxy</span></div>
+      <div class="spec-row"><span class="k">内屏</span><span class="v">8.0" QXGA+ Dynamic AMOLED 2X, 3000nit</span></div>
+      <div class="spec-row"><span class="k">外屏</span><span class="v">6.5" FHD+ Dynamic AMOLED 2X</span></div>
+      <div class="spec-row"><span class="k">电池</span><span class="v">5000mAh / 45W 有线</span></div>
+      <div class="spec-row"><span class="k">后摄</span><span class="v">200MP 主摄 + 50MP 超广角 + 10MP 3x 长焦</span></div>
+      <div class="spec-row"><span class="k">存储</span><span class="v">12GB+256GB / 512GB / 1TB（1TB 16GB RAM）</span></div>
+      <div class="spec-row"><span class="k">重量</span><span class="v">215g</span></div>
+      <div class="spec-row"><span class="k">厚度</span><span class="v">展开 4.1mm</span></div>
+      <div class="spec-row"><span class="k">系统</span><span class="v">Android 17 / One UI 9</span></div>
+      <div class="spec-row"><span class="k">起售价</span><span class="v">¥14,999（12+256）</span></div>
+    </div>
+    <div class="hero-card">
+      <h3>综合评分</h3>
+      <div class="spec-row"><span class="k">屏幕</span><span class="v"><span class="rated"><span class="stars">★★★★★</span><span class="tip">8英寸 QXGA+ 内屏 3000nit 峰值亮度 + 防反射涂层 + 442ppi，折叠屏最顶级显示水准。</span></span></span></div>
+      <div class="spec-row"><span class="k">性能</span><span class="v"><span class="rated"><span class="stars">★★★★★</span><span class="tip">骁龙 8 Elite Gen 5 for Galaxy 定制版 + 最高 16GB RAM + 石墨散热结构，多任务无短板。</span></span></span></div>
+      <div class="spec-row"><span class="k">影像</span><span class="v"><span class="rated"><span class="stars">★★★★★</span><span class="tip">200MP 主摄 + 50MP 超广角 + 10MP 3x 长焦 + 8K APV 编解码 + Cine LUT，折叠屏影像天花板。</span></span></span></div>
+      <div class="spec-row"><span class="k">续航</span><span class="v"><span class="rated"><span class="stars">★★★★☆</span><span class="tip">5000mAh 较前代 4400mAh 提升 14%，支持 45W 快充，但 8 英寸大屏功耗仍高，重度使用需一天一充。</span></span></span></div>
+      <div class="spec-row"><span class="k">设计</span><span class="v"><span class="rated"><span class="stars">★★★★★</span><span class="tip">4.1mm 展开厚度 + 215g + Flex Titanium 减折痕，是最薄最轻的 Galaxy Z Fold。</span></span></span></div>
+      <div class="spec-row"><span class="k">生态依赖</span><span class="v"><span class="rated"><span class="stars">★★★★☆</span><span class="tip">Gemini Intelligence 跨 40+ App 协作，但 Samsung 生态绑定较深，非三星用户体验打折。</span></span></span></div>
+    </div>
+  </div>
+
+  <!-- ② Top5 升级 -->
+  <div class="section-title">🚀 Top 5 看点（vs Z Fold7）</div>
+  <ul class="upgrade-list">
+    <li><span class="badge">影像</span><div>主摄从 50MP 升级至 200MP（2x 光学质量变焦），超广角从 12MP 升至 50MP，8K APV 视频编解码 + Cine LUT 调色。</div></li>
+    <li><span class="badge">电池</span><div>5000mAh（前代 4400mAh，+14%），首次支持 45W 有线快充，双路充电分流设计。</div></li>
+    <li><span class="badge">设计</span><div>Flex Titanium 钛合金薄膜 + 强化板结合，大幅减轻折痕可见度和触感，为折叠屏首发。</div></li>
+    <li><span class="badge">芯片</span><div>骁龙 8 Elite Gen 5 for Galaxy 定制版，最高主频 4.74GHz，石墨扩展散热结构。</div></li>
+    <li><span class="badge">AI</span><div>Now Nudge 屏幕情境感知、Gemini Intelligence 跨 40+ App 代理式 AI、Photo Assist 自然语言修图。</div></li>
+  </ul>
+
+  <!-- ③ 参数 Diff -->
+  <div class="section-title">📊 参数 Diff — 对标：vivo X Fold6（2026，¥7,999）</div>
+  <table class="diff-table">
+    <thead><tr><th>维度</th><th>Z Fold8 Ultra</th><th>vivo X Fold6</th><th>差异判断</th></tr></thead>
+    <tbody>
+      <tr><td>芯片</td><td>骁龙 8 Elite Gen 5 for Galaxy</td><td>天玑 9500 Super Edition</td><td><span class="delta flat">＝ 各有优化，同代旗舰</span></td></tr>
+      <tr><td>内屏</td><td>8.0" QXGA+ 3000nit</td><td>8.02" 2K 5000nit</td><td><span class="delta down">▼ 亮度不及 X Fold6</span></td></tr>
+      <tr><td>电池</td><td>5000mAh / 45W</td><td>7000mAh / 80W 有线 + 40W 无线</td><td><span class="delta down">▼ 容量与充电速度均落后</span></td></tr>
+      <tr><td>主摄</td><td>200MP + 50MP 超广角 + 10MP 3x</td><td>200MP + 50MP 超广角 + 50MP 3x</td><td><span class="delta down">▼ 长焦传感器规格略低</span></td></tr>
+      <tr><td>重量</td><td>215g</td><td>228g</td><td><span class="delta up">▲ 更轻 13g</span></td></tr>
+      <tr><td>厚度（展开）</td><td>4.1mm</td><td>4.4mm</td><td><span class="delta up">▲ 更薄 0.3mm</span></td></tr>
+      <tr><td>防水</td><td>IP48</td><td>IP58/59</td><td><span class="delta down">▼ 防水等级较低</span></td></tr>
+      <tr><td>起售价</td><td>¥14,999</td><td>¥7,999</td><td><span class="delta down">▼ 贵近一倍</span></td></tr>
+    </tbody>
+  </table>
+
+  <!-- ④ AI 自动总结 -->
+  <div class="section-title">🧠 AI 自动总结</div>
+  <div class="ai-grid">
+    <div class="ai-card"><div class="label">📣 最大卖点</div><p>折叠屏首款 Ultra：200MP 旗舰影像 + 4.1mm 极致轻薄 + Flex Titanium 减折痕 + 5000mAh 大电池 + 45W 快充，生产力与旗舰体验兼得。</p></div>
+    <div class="ai-card"><div class="label">⚠️ 最大短板</div><p>¥14,999 起售价较 vivo X Fold6 贵近一倍，而电池容量（5000 vs 7000mAh）和充电速度（45W vs 80W）均不占优，性价比压力明显。</p></div>
+    <div class="ai-card"><div class="label">🎯 最适合人群</div><p>追求极致轻薄设计、看重三星生态（DeX/Galaxy AI/One UI）、对影像有旗舰级要求的大屏折叠屏用户。</p></div>
+    <div class="ai-card"><div class="label">🔮 市场判断</div><p>Ultra 命名拉高了品牌天花板，但国行定价面对 X Fold6 的电池/充电优势和更低价格，核心竞争力在生态和品牌溢价而非纯硬件。</p></div>
+  </div>
+
+  <!-- ⑤ 与上代变化 -->
+  <div class="section-title">📈 关键参数与上代对比（vs Galaxy Z Fold7）</div>
+  <div class="chart-wrap">
+    <div class="compare-grid">
+      <div class="compare-item"><div class="compare-label">展开厚度 (mm)</div><canvas id="cmpFold8U_thick"></canvas></div>
+      <div class="compare-item"><div class="compare-label">电池 (mAh)</div><canvas id="cmpFold8U_batt"></canvas></div>
+      <div class="compare-item"><div class="compare-label">超广角摄像头 (MP)</div><canvas id="cmpFold8U_uw"></canvas></div>
+    </div>
+    <table class="mini-table">
+      <tr><td>展开厚度</td><td>4.1mm（前代 Z Fold7 4.2mm，-2.4%）</td></tr>
+      <tr><td>重量</td><td>215g（前代 Z Fold7 215g，持平）</td></tr>
+      <tr><td>电池</td><td>5000mAh（前代 Z Fold7 4400mAh，+13.6%）</td></tr>
+      <tr><td>主摄</td><td>200MP（前代 Z Fold7 200MP，持平，主要提升在超广角）</td></tr>
+      <tr><td>超广角</td><td>50MP（前代 Z Fold7 12MP，+317%）</td></tr>
+    </table>
+  </div>
+
+  <!-- ⑥ SWOT -->
+  <div class="section-title">🏆 竞品 SWOT</div>
+  <div class="swot">
+    <div class="swot-cell"><h4>S · 优势</h4><ul><li>4.1mm 展开厚度 + 215g 同级最轻最薄</li><li>200MP 主摄 + 8K APV + Cine LUT</li><li>Flex Titanium 减折痕技术</li><li>三星 DeX + Galaxy AI 生态</li></ul></div>
+    <div class="swot-cell"><h4>W · 劣势</h4><ul><li>5000mAh / 45W 不及国产对手 7000mAh / 80W</li><li>IP48 防水等级偏低</li><li>¥14,999 起售价门槛极高</li><li>不原生支持 Qi2</li></ul></div>
+    <div class="swot-cell"><h4>O · 机会</h4><ul><li>Ultra 命名首发，品牌认知度高</li><li>折叠屏 iPhone 尚未上市，存在时间窗口</li><li>Gemini + One UI 9 代理式 AI 差异化</li></ul></div>
+    <div class="swot-cell"><h4>T · 威胁</h4><ul><li>vivo X Fold6 / Honor Magic V6 硬件参数全面领先</li><li>折叠屏 iPhone 预计 2026 年秋季到来</li><li>全球经济放缓影响高端消费</li></ul></div>
+  </div>
+
+  <!-- ⑦ 全量参数 -->
+  <details>
+    <summary>📋 全量参数展开</summary>
+    <table class="param-table">
+      <tr><td>芯片</td><td>Qualcomm Snapdragon 8 Elite Gen 5 for Galaxy</td></tr>
+      <tr><td>内屏</td><td>8.0" QXGA+ Dynamic AMOLED 2X, 2504×2256, 442ppi, 1-120Hz LTPO, 3000nit 峰值, 防反射涂层</td></tr>
+      <tr><td>外屏</td><td>6.5" FHD+ Dynamic AMOLED 2X, 1-120Hz LTPO</td></tr>
+      <tr><td>RAM</td><td>12GB（256/512GB）/ 16GB（1TB）</td></tr>
+      <tr><td>存储</td><td>256GB / 512GB / 1TB，不支持扩展</td></tr>
+      <tr><td>后摄</td><td>200MP f/1.8 主摄（2x 光学质量变焦）+ 50MP f/2.2 超广角 + 10MP f/2.4 3x 长焦 OIS</td></tr>
+      <tr><td>前摄</td><td>10MP 外屏 + 10MP 内屏（屏下）</td></tr>
+      <tr><td>视频</td><td>8K APV, 4K@60fps, Cine LUT, Super Steady, HDR10+</td></tr>
+      <tr><td>电池</td><td>5000mAh</td></tr>
+      <tr><td>充电</td><td>45W 有线（需另购充电器），无线充电，反向无线充电</td></tr>
+      <tr><td>重量</td><td>215g</td></tr>
+      <tr><td>展开厚度</td><td>4.1mm</td></tr>
+      <tr><td>折叠厚度</td><td>待确认</td></tr>
+      <tr><td>防护</td><td>IP48</td></tr>
+      <tr><td>铰链</td><td>Flex Titanium（钛合金薄膜 + 强化板）</td></tr>
+      <tr><td>系统</td><td>Android 17 / One UI 9，承诺 7 年系统+安全更新</td></tr>
+      <tr><td>配色</td><td>Violet Shadow, Cream, Graphite, Green Shadow（线上独占）</td></tr>
+      <tr><td>上市日期</td><td>2026-08-07</td></tr>
+      <tr><td>起售价</td><td>¥14,999（12+256GB）</td></tr>
+    </table>
+  </details>
+
+  <!-- ⑧ 来源 -->
+  <div class="section-title">📎 来源</div>
+  <div class="src-list">
+    · 官方 Newsroom（Level 2）：<a href="https://news.samsung.com/global/galaxy-unpacked-july-2026-a-first-look-at-galaxy-z-fold8-ultra-galaxy-z-fold8-and-galaxy-z-flip8">Samsung Newsroom – First Look</a><br>
+    · 官方产品页（Level 1）：<a href="https://www.samsung.com/us/smartphones/galaxy-z-fold8-ultra/">Samsung US – Z Fold8 Ultra</a><br>
+    · 媒体来源（Level 3）：PhoneArena、Android Authority、Droid-Life、Engadget<br>
+    · 竞品参数：vivo X Fold6 来自 Android Authority + Gizmochina
+  </div>
+
+  <div class="nav-btns"><a class="disabled" href="javascript:;">← 上一品</a><a href="javascript:switchTab(2)">下一品 →</a></div>
+</div>
+
+<!-- ==================== TAB 2 Z Fold8 ==================== -->
+<div class="pane" id="pane2">
+  <h2 class="product-title">Samsung Galaxy Z Fold8</h2>
+  <div class="product-img-wrap"><img src="https://images.samsung.com.cn/cn/smartphones/galaxy-z-fold8/buy/H8_Global_Group_KV_Image_PC_1600x864_x.jpg?imbypass=true" alt="Galaxy Z Fold8"/><div class="product-img-placeholder"><div class="icon">🖼️</div><div>产品图待填入</div><div class="hint">官网域名配额已在 Z Fold8 Ultra 阶段用尽。<br>粘贴图片直链到 src="" 后保存刷新。</div></div></div>
+
+  <div class="hero-grid">
+    <div class="hero-card">
+      <h3>核心规格（官方确认）</h3>
+      <div class="spec-row"><span class="k">芯片</span><span class="v">骁龙 8 Elite Gen 5 for Galaxy</span></div>
+      <div class="spec-row"><span class="k">内屏</span><span class="v">7.6" Dynamic AMOLED 2X, 2448×1848, 3000nit</span></div>
+      <div class="spec-row"><span class="k">外屏</span><span class="v">5.5" 10:16 宽比例</span></div>
+      <div class="spec-row"><span class="k">电池</span><span class="v">4800mAh</span></div>
+      <div class="spec-row"><span class="k">后摄</span><span class="v">50MP 主摄 + 50MP 超广角（无长焦）</span></div>
+      <div class="spec-row"><span class="k">存储</span><span class="v">12GB+256GB / 512GB / 1TB</span></div>
+      <div class="spec-row"><span class="k">重量</span><span class="v">201g（最轻 Fold）</span></div>
+      <div class="spec-row"><span class="k">厚度</span><span class="v">展开 4.5mm</span></div>
+      <div class="spec-row"><span class="k">视频播放</span><span class="v">最长 26 小时</span></div>
+      <div class="spec-row"><span class="k">起售价</span><span class="v">¥12,999（12+256）</span></div>
+    </div>
+    <div class="hero-card">
+      <h3>综合评分</h3>
+      <div class="spec-row"><span class="k">屏幕</span><span class="v"><span class="rated"><span class="stars">★★★★☆</span><span class="tip">7.6" 宽屏 4:3 比例适合影音与游戏，3000nit 亮度不错，但分辨率与 Ultra 有差距。</span></span></span></div>
+      <div class="spec-row"><span class="k">性能</span><span class="v"><span class="rated"><span class="stars">★★★★★</span><span class="tip">与 Ultra 同款骁龙 8 Elite Gen 5 for Galaxy，日常多任务无短板。</span></span></span></div>
+      <div class="spec-row"><span class="k">影像</span><span class="v"><span class="rated"><span class="stars">★★★☆☆</span><span class="tip">50MP 双摄 + 无长焦，影像配置是这一代 Fold 最大遗憾。</span></span></span></div>
+      <div class="spec-row"><span class="k">续航</span><span class="v"><span class="rated"><span class="stars">★★★★☆</span><span class="tip">4800mAh + 26 小时视频播放，宽屏形态功耗可控。</span></span></span></div>
+      <div class="spec-row"><span class="k">便携</span><span class="v"><span class="rated"><span class="stars">★★★★★</span><span class="tip">201g 为 Galaxy Z Fold 系列历史最轻，合起来接近传统直板机手感。</span></span></span></div>
+    </div>
+  </div>
+
+  <div class="section-title">🚀 Top 5 看点（全新形态）</div>
+  <ul class="upgrade-list">
+    <li><span class="badge">形态</span><div>全新 10:16 宽屏比例设计，合起类似 BlackBerry Passport，展开为 4:3 横向沉浸式大屏，是三星首款宽屏折叠。</div></li>
+    <li><span class="badge">轻薄</span><div>201g 为 Galaxy Z Fold 系列史上最轻，4.5mm 展开厚度，Flex Titanium 铰链减折痕。</div></li>
+    <li><span class="badge">AI</span><div>My FanCam 自动追踪主体重新构图、Now Brief 安全隐私洞察、Gemini Intelligence 代理式 AI。</div></li>
+    <li><span class="badge">影音</span><div>4:3 宽屏比例内屏天然适合视频、游戏和分屏办公，Samsung 定位为影音娱乐向折叠。</div></li>
+    <li><span class="badge">芯片</span><div>骁龙 8 Elite Gen 5 for Galaxy 定制版，与 Ultra 同款，性能不打折。</div></li>
+  </ul>
+
+  <div class="section-title">📊 参数 Diff — 对标：vivo X Fold6（2026，¥7,999）</div>
+  <table class="diff-table">
+    <thead><tr><th>维度</th><th>Z Fold8</th><th>vivo X Fold6</th><th>差异判断</th></tr></thead>
+    <tbody>
+      <tr><td>芯片</td><td>骁龙 8 Elite Gen 5 for Galaxy</td><td>天玑 9500 Super Edition</td><td><span class="delta flat">＝ 同代旗舰</span></td></tr>
+      <tr><td>内屏</td><td>7.6" 3000nit</td><td>8.02" 5000nit</td><td><span class="delta down">▼ 尺寸和亮度均落后</span></td></tr>
+      <tr><td>电池</td><td>4800mAh</td><td>7000mAh / 80W + 40W 无线</td><td><span class="delta down">▼ 容量差距悬殊</span></td></tr>
+      <tr><td>后摄</td><td>50MP+50MP（无长焦）</td><td>200MP+50MP+50MP 3x</td><td><span class="delta down">▼ 影像配置全面落后</span></td></tr>
+      <tr><td>重量</td><td>201g</td><td>228g</td><td><span class="delta up">▲ 更轻 27g</span></td></tr>
+      <tr><td>起售价</td><td>¥12,999</td><td>¥7,999</td><td><span class="delta down">▼ 贵 ¥5,000</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-title">🧠 AI 自动总结</div>
+  <div class="ai-grid">
+    <div class="ai-card"><div class="label">📣 最大卖点</div><p>全新 10:16 宽屏形态 + 201g 史上最轻 Fold，重新定义折叠屏影音体验，合起比传统 Fold 更像一部正常手机。</p></div>
+    <div class="ai-card"><div class="label">⚠️ 最大短板</div><p>50MP 双摄无长焦，影像配置在 ¥12,999 价位严重偏弱；电池 4800mAh 不及国产对手 7000mAh 级别。</p></div>
+    <div class="ai-card"><div class="label">🎯 最适合人群</div><p>追求轻薄便携、以影音/游戏/分屏办公为主、不依赖长焦摄影的折叠屏用户。</p></div>
+    <div class="ai-card"><div class="label">🔮 市场判断</div><p>宽屏形态是差异化亮点，但影像短板和高售价是硬伤。定位更偏"回应折叠 iPhone 的防守型产品"，而非进攻 vivo/Honor。</p></div>
+  </div>
+
+  <div class="section-title">📈 关键参数（参照基准：Galaxy Z Fold7，非直接换代）</div>
+  <div class="notice">Z Fold8 是三星首款宽屏折叠形态，与传统窄屏 Z Fold 系列不是同一形态的直接换代关系，故本对比以上一代旗舰 Z Fold7 作为参照基准，仅供了解世代变化趋势，不代表同形态升级。</div>
+  <div class="chart-wrap">
+    <div class="compare-grid">
+      <div class="compare-item"><div class="compare-label">重量 (g)</div><canvas id="cmpFold8_weight"></canvas></div>
+      <div class="compare-item"><div class="compare-label">电池 (mAh)</div><canvas id="cmpFold8_batt"></canvas></div>
+      <div class="compare-item"><div class="compare-label">展开厚度 (mm)</div><canvas id="cmpFold8_thick"></canvas></div>
+    </div>
+    <table class="mini-table">
+      <tr><td>重量</td><td>201g（Z Fold7 215g，-6.5%，Fold 系列史上最轻）</td></tr>
+      <tr><td>电池</td><td>4800mAh（Z Fold7 4400mAh，+9.1%）</td></tr>
+      <tr><td>展开厚度</td><td>4.5mm（Z Fold7 4.2mm，+7.1%，因宽屏形态结构不同而增厚）</td></tr>
+    </table>
+  </div>
+
+  <div class="section-title">🏆 竞品 SWOT</div>
+  <div class="swot">
+    <div class="swot-cell"><h4>S · 优势</h4><ul><li>201g 最轻 Fold + 全新宽屏形态</li><li>与 Ultra 同款芯片，性能不妥协</li><li>三星 DeX + Galaxy AI 生态</li></ul></div>
+    <div class="swot-cell"><h4>W · 劣势</h4><ul><li>无长焦的双摄影像</li><li>4800mAh 电池偏小</li><li>¥12,999 定价 vs 竞品的更全面硬件</li></ul></div>
+    <div class="swot-cell"><h4>O · 机会</h4><ul><li>宽屏形态目前独家差异化</li><li>对标折叠 iPhone 的布局产品</li></ul></div>
+    <div class="swot-cell"><h4>T · 威胁</h4><ul><li>国产折叠屏硬件全面碾压</li><li>消费者可能更倾向 Ultra 或等待 iPhone</li></ul></div>
+  </div>
+
+  <details><summary>📋 全量参数展开</summary><table class="param-table">
+    <tr><td>芯片</td><td>Qualcomm Snapdragon 8 Elite Gen 5 for Galaxy</td></tr>
+    <tr><td>内屏</td><td>7.6" Dynamic AMOLED 2X, 2448×1848, 4:3, 1-120Hz LTPO, 3000nit, 低反射</td></tr>
+    <tr><td>外屏</td><td>5.5" Dynamic AMOLED 2X, 10:16, 1-120Hz</td></tr>
+    <tr><td>RAM / 存储</td><td>12GB+256GB / 12GB+512GB / 16GB+1TB</td></tr>
+    <tr><td>后摄</td><td>50MP f/1.8 主摄 OIS + 50MP f/2.2 超广角</td></tr>
+    <tr><td>前摄</td><td>10MP 外屏 + 10MP 内屏</td></tr>
+    <tr><td>电池</td><td>4800mAh</td></tr>
+    <tr><td>充电</td><td>待确认（官网未明确标注瓦数）</td></tr>
+    <tr><td>重量</td><td>201g</td></tr>
+    <tr><td>展开厚度</td><td>4.5mm</td></tr>
+    <tr><td>防护</td><td>IP48</td></tr>
+    <tr><td>铰链</td><td>Flex Titanium</td></tr>
+    <tr><td>系统</td><td>Android 17 / One UI 9，7 年更新</td></tr>
+    <tr><td>配色</td><td>Lavender, Cream, Graphite, Pistachio（线上独占）</td></tr>
+    <tr><td>上市</td><td>2026-08-07</td></tr>
+    <tr><td>起售价</td><td>¥12,999（12+256GB）</td></tr>
+  </table></details>
+
+  <div class="section-title">📎 来源</div>
+  <div class="src-list">
+    · 官方 Newsroom（Level 2）：<a href="https://news.samsung.com/global/galaxy-unpacked-july-2026-a-first-look-at-galaxy-z-fold8-ultra-galaxy-z-fold8-and-galaxy-z-flip8">Samsung Newsroom – First Look</a><br>
+    · 媒体来源（Level 3）：Droid-Life、Engadget、Tech Advisor、9to5Google
+  </div>
+  <div class="nav-btns"><a href="javascript:switchTab(1)">← 上一品</a><a href="javascript:switchTab(3)">下一品 →</a></div>
+</div>
+
+<!-- ==================== TAB 3 Z Flip8 ==================== -->
+<div class="pane" id="pane3">
+  <h2 class="product-title">Samsung Galaxy Z Flip8</h2>
+  <div class="product-img-wrap"><img src="https://images.samsung.com.cn/cn/smartphones/galaxy-z-flip8/buy/B8_Global_Group_KV_Image_PC_1600x864_x.jpg?imbypass=true" alt="Galaxy Z Flip8"/><div class="product-img-placeholder"><div class="icon">🖼️</div><div>产品图待填入</div><div class="hint">官网域名配额已用尽。粘贴图片直链到 src="" 后保存刷新。</div></div></div>
+
+  <div class="hero-grid">
+    <div class="hero-card">
+      <h3>核心规格（官方确认）</h3>
+      <div class="spec-row"><span class="k">芯片</span><span class="v">骁龙 8 Elite Gen 5 for Galaxy</span></div>
+      <div class="spec-row"><span class="k">内屏</span><span class="v">6.9" FHD+ Dynamic AMOLED 2X, 120Hz, 2600nit</span></div>
+      <div class="spec-row"><span class="k">外屏（FlexWindow）</span><span class="v">4.1" Super AMOLED, 120Hz, 2600nit</span></div>
+      <div class="spec-row"><span class="k">电池</span><span class="v">4300mAh / 最长 31 小时视频播放</span></div>
+      <div class="spec-row"><span class="k">后摄</span><span class="v">50MP 主摄 OIS + 12MP 超广角</span></div>
+      <div class="spec-row"><span class="k">存储</span><span class="v">12GB+256GB / 512GB</span></div>
+      <div class="spec-row"><span class="k">重量</span><span class="v">180g（最轻 Flip）</span></div>
+      <div class="spec-row"><span class="k">厚度</span><span class="v">展开 6.1mm</span></div>
+      <div class="spec-row"><span class="k">起售价</span><span class="v">¥8,999（12+256）</span></div>
+    </div>
+    <div class="hero-card">
+      <h3>综合评分</h3>
+      <div class="spec-row"><span class="k">屏幕</span><span class="v"><span class="rated"><span class="stars">★★★★☆</span><span class="tip">6.9" FHD+ 内屏 + 4.1" FlexWindow，外屏可运行 App/AI，但分辨率和亮度与上代持平。</span></span></span></div>
+      <div class="spec-row"><span class="k">性能</span><span class="v"><span class="rated"><span class="stars">★★★★★</span><span class="tip">骁龙 8 Elite Gen 5 for Galaxy，与旗舰 Fold 同款芯片，不缩水。</span></span></span></div>
+      <div class="spec-row"><span class="k">影像</span><span class="v"><span class="rated"><span class="stars">★★★☆☆</span><span class="tip">50MP+12MP 双摄与 Flip7 基本一致，硬件几乎无升级。</span></span></span></div>
+      <div class="spec-row"><span class="k">续航</span><span class="v"><span class="rated"><span class="stars">★★★★☆</span><span class="tip">4300mAh + 31 小时视频播放，翻盖形态续航表现不错。</span></span></span></div>
+      <div class="spec-row"><span class="k">便携</span><span class="v"><span class="rated"><span class="stars">★★★★★</span><span class="tip">180g + 6.1mm，翻盖合起极致口袋友好。</span></span></span></div>
+    </div>
+  </div>
+
+  <div class="section-title">🚀 Top 5 看点（vs Z Flip7）</div>
+  <ul class="upgrade-list">
+    <li><span class="badge">轻薄</span><div>180g（前代 188g，-4.3%）+ 展开 6.1mm（前代 6.5mm，-6.2%），最轻最薄 Flip。</div></li>
+    <li><span class="badge">芯片</span><div>骁龙 8 Elite Gen 5 for Galaxy（前代 Exynos 2500），性能跃升且统一全球版本。</div></li>
+    <li><span class="badge">电池</span><div>4300mAh（前代 4300mAh），容量持平但新芯片更省电，实测续航可能提升。</div></li>
+    <li><span class="badge">FlexWindow</span><div>外屏 App 体验升级，Now Brief 按钮化操作，Gemini Intelligence 侧键/语音唤醒。</div></li>
+    <li><span class="badge">铰链</span><div>Flex Titanium 减折痕技术，翻盖机型首次搭载。</div></li>
+  </ul>
+
+  <div class="section-title">📊 参数 Diff — 对标：华为 Pocket 2 优享版（2025，¥5,499，国补后¥4,999）</div>
+  <div class="notice">注：vivo/iQOO 该品类（翻盖折叠屏）暂无对应产品，按同年度+同级别定位优先原则，转向国产阵营选取华为 Pocket 2 优享版（2025年6月上市，报告生成时仍是华为该品类当打型号，非同年款但差距仅一年，级别对齐）作为对标，替代此前误用的 Motorola Razr 50 Ultra（2024，同芯片但非同级别当打旗舰，对比参考价值有限）。</div>
+  <table class="diff-table">
+    <thead><tr><th>维度</th><th>Z Flip8</th><th>华为 Pocket 2 优享版</th><th>差异判断</th></tr></thead>
+    <tbody>
+      <tr><td>芯片</td><td>骁龙 8 Elite Gen 5</td><td>麒麟芯片（较标准版 Pocket 2 降频，性能低约4.17%，媒体来源：MobileMagazine）</td><td><span class="delta up">▲ 性能大幅领先</span></td></tr>
+      <tr><td>内屏</td><td>6.9" FHD+ 2600nit</td><td>6.94"（2690×1136）</td><td><span class="delta flat">＝ 尺寸相当</span></td></tr>
+      <tr><td>外屏</td><td>4.1" Super AMOLED（948×1048）</td><td>1.15"（340×340）</td><td><span class="delta up">▲ 外屏尺寸大幅领先</span></td></tr>
+      <tr><td>电池</td><td>4300mAh</td><td>4520mAh</td><td><span class="delta down">▼ 容量略小</span></td></tr>
+      <tr><td>充电</td><td>25W 有线（媒体来源：Droid-Life）</td><td>66W 有线 + 40W 无线</td><td><span class="delta down">▼ 充电速度明显落后</span></td></tr>
+      <tr><td>重量</td><td>180g</td><td>约199g（素皮版）/ 202g（玻璃版）</td><td><span class="delta up">▲ 更轻约19-22g</span></td></tr>
+      <tr><td>展开厚度</td><td>6.1mm</td><td>7.25mm（玻璃版）/ 7.35mm（素皮版）</td><td><span class="delta up">▲ 更薄约1.1-1.25mm</span></td></tr>
+      <tr><td>防护</td><td>IP48（含防尘等级）</td><td>IPX8（官方未标注防尘等级）</td><td><span class="delta flat">＝ 均为防溅抗水，认证标准不同</span></td></tr>
+      <tr><td>起售价</td><td>¥8,999</td><td>¥5,499（国补后¥4,999）</td><td><span class="delta down">▼ 贵约¥3,500</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-title">🧠 AI 自动总结</div>
+  <div class="ai-grid">
+    <div class="ai-card"><div class="label">📣 最大卖点</div><p>180g + 6.1mm 翻盖最轻最薄 + 旗舰同款骁龙 8 Elite Gen 5 + FlexWindow 升级版 AI 体验，合起即是全功能外屏设备。</p></div>
+    <div class="ai-card"><div class="label">⚠️ 最大短板</div><p>相机硬件与 Flip7 几乎一致（50MP+12MP），¥8,999 起售价较前代上涨，硬件升级感不够。传闻可能是三星最后一款翻盖折叠。</p></div>
+    <div class="ai-card"><div class="label">🎯 最适合人群</div><p>追求口袋友好、时尚翻盖设计、外屏 AI 交互的用户，不太依赖长焦摄影。</p></div>
+    <div class="ai-card"><div class="label">🔮 市场判断</div><p>华为 Pocket 2 优享版以约六成价格提供更轻薄机身、更快充电速度，性能虽有差距但差距在缩小；三星在翻盖折叠市场的绝对优势正被国产阵营用性价比和轻薄设计蚕食，若真是"最后一款 Flip"，需权衡收藏价值与实际竞争力。</p></div>
+  </div>
+
+  <div class="section-title">📈 关键参数与上代对比（vs Galaxy Z Flip7）</div>
+  <div class="chart-wrap">
+    <div class="compare-grid">
+      <div class="compare-item"><div class="compare-label">重量 (g)</div><canvas id="cmpFlip8_weight"></canvas></div>
+      <div class="compare-item"><div class="compare-label">展开厚度 (mm)</div><canvas id="cmpFlip8_thick"></canvas></div>
+      <div class="compare-item"><div class="compare-label">电池 (mAh)</div><canvas id="cmpFlip8_batt"></canvas></div>
+    </div>
+    <table class="mini-table">
+      <tr><td>重量</td><td>180g（前代 188g，-4.3%）</td></tr>
+      <tr><td>展开厚度</td><td>6.1mm（前代 6.5mm，-6.2%）</td></tr>
+      <tr><td>电池</td><td>4300mAh（与前代持平）</td></tr>
+    </table>
+  </div>
+
+  <div class="section-title">🏆 竞品 SWOT</div>
+  <div class="swot">
+    <div class="swot-cell"><h4>S · 优势</h4><ul><li>180g 最轻 Flip + 6.1mm 最薄</li><li>旗舰芯片不缩水</li><li>FlexWindow AI 能力领先</li></ul></div>
+    <div class="swot-cell"><h4>W · 劣势</h4><ul><li>相机硬件基本无升级</li><li>¥8,999 涨价幅度较大</li><li>传闻为三星最后一款翻盖</li></ul></div>
+    <div class="swot-cell"><h4>O · 机会</h4><ul><li>翻盖市场三星仍无真正对手</li><li>Flex Titanium 折痕改善是加分项</li></ul></div>
+    <div class="swot-cell"><h4>T · 威胁</h4><ul><li>华为 Pocket 2 优享版以约六成价格提供更轻薄机身+更快充电</li><li>翻盖品类市场增长放缓</li><li>消费者可能转向直板或大折叠</li></ul></div>
+  </div>
+
+  <details><summary>📋 全量参数展开</summary><table class="param-table">
+    <tr><td>芯片</td><td>Qualcomm Snapdragon 8 Elite Gen 5 for Galaxy</td></tr>
+    <tr><td>内屏</td><td>6.9" FHD+ Dynamic AMOLED 2X, 1080×2520, 120Hz LTPO, 2600nit 峰值, HDR10+</td></tr>
+    <tr><td>外屏</td><td>4.1" Super AMOLED, 948×1048, 120Hz, 2600nit</td></tr>
+    <tr><td>RAM / 存储</td><td>12GB + 256GB / 512GB</td></tr>
+    <tr><td>后摄</td><td>50MP f/1.8 主摄 OIS + 12MP f/2.2 超广角</td></tr>
+    <tr><td>前摄</td><td>10MP f/2.2</td></tr>
+    <tr><td>电池</td><td>4300mAh</td></tr>
+    <tr><td>充电</td><td>25W 有线（媒体来源：Droid-Life）+ 无线 + 反向无线</td></tr>
+    <tr><td>重量</td><td>180g</td></tr>
+    <tr><td>展开厚度</td><td>6.1mm</td></tr>
+    <tr><td>折叠厚度</td><td>约 13.2mm（媒体来源：OnLeaks/MyMobiles）</td></tr>
+    <tr><td>防护</td><td>IP48</td></tr>
+    <tr><td>铰链</td><td>Flex Titanium</td></tr>
+    <tr><td>系统</td><td>Android 17 / One UI 9，7 年更新</td></tr>
+    <tr><td>配色</td><td>Graphite, Cream, Pink, Mint（线上独占）</td></tr>
+    <tr><td>上市</td><td>2026-08-07</td></tr>
+    <tr><td>起售价</td><td>¥8,999（12+256GB）</td></tr>
+  </table></details>
+
+  <div class="section-title">📎 来源</div>
+  <div class="src-list">
+    · 官方产品页（Level 1）：<a href="https://www.samsung.com/us/smartphones/galaxy-z-flip8/">Samsung US – Z Flip8</a><br>
+    · 媒体来源（Level 3）：Android Central、Digital Trends、Droid-Life<br>
+    · 竞品参数：华为官网规格页（<a href="https://consumer.huawei.com/cn/phones/pocket-2-youxiangban/specs/">HUAWEI Pocket 2 优享版规格参数</a>）、新浪科技、MobileMagazine
+  </div>
+  <div class="nav-btns"><a href="javascript:switchTab(2)">← 上一品</a><a href="javascript:switchTab(4)">下一品 →</a></div>
+</div>
+
+<!-- ==================== TAB 4 Watch Ultra2 ==================== -->
+<div class="pane" id="pane4">
+  <h2 class="product-title">Samsung Galaxy Watch Ultra2</h2>
+  <div class="product-img-wrap"><img src="https://images.samsung.com.cn/is/image/samsung/p6pim/cn/f2607/gallery/cn-galaxy-watch-ultra2-l710-sm-l7150zsachc-553952619?$1164_776_PNG$" alt="Galaxy Watch Ultra2"/><div class="product-img-placeholder"><div class="icon">🖼️</div><div>产品图待填入</div><div class="hint">粘贴图片直链到 src="" 后保存刷新。</div></div></div>
+
+  <div class="hero-grid">
+    <div class="hero-card">
+      <h3>核心规格（官方确认）</h3>
+      <div class="spec-row"><span class="k">芯片</span><span class="v">Snapdragon Wear Elite（SW6100）3nm</span></div>
+      <div class="spec-row"><span class="k">屏幕</span><span class="v">1.52" Super AMOLED 480×480, 5000nit 峰值</span></div>
+      <div class="spec-row"><span class="k">电池</span><span class="v">800mAh（较前代 +35%）</span></div>
+      <div class="spec-row"><span class="k">表壳</span><span class="v">47mm 钛合金，蓝宝石玻璃</span></div>
+      <div class="spec-row"><span class="k">防护</span><span class="v">10ATM + IP69K + EN13319 + MIL-STD-810H</span></div>
+      <div class="spec-row"><span class="k">存储</span><span class="v">2GB RAM + 64GB</span></div>
+      <div class="spec-row"><span class="k">厚度</span><span class="v">较前代薄 12%</span></div>
+      <div class="spec-row"><span class="k">连接</span><span class="v">LTE + Wi-Fi + BT 6.0 + NFC + GPS</span></div>
+      <div class="spec-row"><span class="k">系统</span><span class="v">Wear OS 7 / One UI 9 Watch</span></div>
+      <div class="spec-row"><span class="k">起售价</span><span class="v">¥5,299</span></div>
+    </div>
+    <div class="hero-card">
+      <h3>综合评分</h3>
+      <div class="spec-row"><span class="k">屏幕</span><span class="v"><span class="rated"><span class="stars">★★★★★</span><span class="tip">5000nit 为智能手表史上最高亮度，阳光直射下依然清晰可读。</span></span></span></div>
+      <div class="spec-row"><span class="k">性能</span><span class="v"><span class="rated"><span class="stars">★★★★★</span><span class="tip">首发 Snapdragon Wear Elite，首款穿戴专用独立 NPU，支持 20 亿参数 AI 模型。</span></span></span></div>
+      <div class="spec-row"><span class="k">续航</span><span class="v"><span class="rated"><span class="stars">★★★★★</span><span class="tip">800mAh + 新芯片效率提升，官方宣称续航 60 小时，实际重度使用 2-3 天可期。</span></span></span></div>
+      <div class="spec-row"><span class="k">耐用</span><span class="v"><span class="rated"><span class="stars">★★★★★</span><span class="tip">10ATM+IP69K+EN13319+MIL-STD-810H，钛合金+蓝宝石，防护等级同级最强。</span></span></span></div>
+      <div class="spec-row"><span class="k">生态</span><span class="v"><span class="rated"><span class="stars">★★★★☆</span><span class="tip">Wear OS 7 应用生态丰富，但与 Apple Watch Ultra 3 对比仍有差距；需搭配安卓手机。</span></span></span></div>
+    </div>
+  </div>
+
+  <div class="section-title">🚀 Top 5 看点（vs Watch Ultra 初代）</div>
+  <ul class="upgrade-list">
+    <li><span class="badge">续航</span><div>800mAh 电池（前代 590mAh，+35%），官方续航 60 小时。</div></li>
+    <li><span class="badge">亮度</span><div>5000nit 峰值亮度（前代 3000nit，+66%），智能手表首次达到。</div></li>
+    <li><span class="badge">芯片</span><div>首发骁龙 Wear Elite（SW6100），3nm 制程，首款穿戴独立 NPU。</div></li>
+    <li><span class="badge">轻薄</span><div>较前代薄 12%，表带轻 26%（新空气口袋结构），更舒适。</div></li>
+    <li><span class="badge">潜水</span><div>EN13319 潜水仪器认证 + 与 Mares 合作，自动记录潜水深度/时间/水温。</div></li>
+  </ul>
+
+  <div class="section-title">📊 参数 Diff</div>
+  <div class="notice">注：vivo/iQOO 该品类/级别暂无对应产品（vivo 无户外运动旗舰手表），vivo Watch5（¥799）和 Watch GT2（¥699 起）均为日常健康定位，防护/续航/材质差异过大，不具备同级对标意义。本表选用 Apple Watch Ultra 3（2025，约¥6,499）作为竞品。</div>
+  <table class="diff-table">
+    <thead><tr><th>维度</th><th>Watch Ultra2</th><th>Apple Watch Ultra 3（2025）</th><th>差异判断</th></tr></thead>
+    <tbody>
+      <tr><td>芯片</td><td>Snapdragon Wear Elite</td><td>Apple S10</td><td><span class="delta flat">＝ 各有生态优势</span></td></tr>
+      <tr><td>亮度</td><td>5000nit</td><td>3000nit</td><td><span class="delta up">▲ 亮度领先 66%</span></td></tr>
+      <tr><td>电池</td><td>800mAh</td><td>564mAh</td><td><span class="delta up">▲ 容量大幅领先</span></td></tr>
+      <tr><td>防水</td><td>10ATM + EN13319</td><td>10ATM + EN13319</td><td><span class="delta flat">＝ 潜水认证相当</span></td></tr>
+      <tr><td>表壳材质</td><td>钛合金</td><td>钛合金</td><td><span class="delta flat">＝ 同级材质</span></td></tr>
+      <tr><td>系统</td><td>Wear OS 7</td><td>watchOS 12</td><td><span class="delta down">▼ App 生态仍有差距</span></td></tr>
+      <tr><td>起售价</td><td>¥5,299</td><td>约¥6,499</td><td><span class="delta up">▲ 便宜约 ¥1,200</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-title">🧠 AI 自动总结</div>
+  <div class="ai-grid">
+    <div class="ai-card"><div class="label">📣 最大卖点</div><p>800mAh + 5000nit + 钛合金 + EN13319 潜水认证 + 骁龙 Wear Elite 首发，安卓阵营最强户外运动手表。</p></div>
+    <div class="ai-card"><div class="label">⚠️ 最大短板</div><p>¥5,299 定价处于高端区间；Wear OS App 生态与 Apple Watch 仍有差距；需搭配安卓手机使用。</p></div>
+    <div class="ai-card"><div class="label">🎯 最适合人群</div><p>户外运动/潜水爱好者、追求长续航 + 高亮度的安卓用户、从前代 Watch Ultra 换代的三星用户。</p></div>
+    <div class="ai-card"><div class="label">🔮 市场判断</div><p>跳过 2025 年直接换代，升级诚意足够；5000nit + 800mAh 是硬指标领先，但能否撬动 Apple Watch Ultra 用户仍看生态。</p></div>
+  </div>
+
+  <div class="section-title">📈 关键参数与上代对比（vs Galaxy Watch Ultra 2024/2025款）</div>
+  <div class="chart-wrap">
+    <div class="compare-grid">
+      <div class="compare-item"><div class="compare-label">电池 (mAh)</div><canvas id="cmpWU2_batt"></canvas></div>
+      <div class="compare-item"><div class="compare-label">峰值亮度 (nit)</div><canvas id="cmpWU2_bright"></canvas></div>
+      <div class="compare-item"><div class="compare-label">厚度 (mm，推算值)</div><canvas id="cmpWU2_thick"></canvas></div>
+    </div>
+    <table class="mini-table">
+      <tr><td>电池</td><td>800mAh（前代 590mAh，+35.6%）</td></tr>
+      <tr><td>亮度</td><td>5000nit（前代 3000nit，+66.7%）</td></tr>
+      <tr><td>厚度</td><td>约 10.65mm（官方仅公布"较前代薄 12%"，按前代 12.1mm 换算推算，非官方直接公布数值）</td></tr>
+    </table>
+  </div>
+
+  <div class="section-title">🏆 竞品 SWOT</div>
+  <div class="swot">
+    <div class="swot-cell"><h4>S · 优势</h4><ul><li>5000nit 智能手表最高亮度</li><li>800mAh 大电池 + 60h 续航</li><li>EN13319 + Mares 专业潜水</li><li>骁龙 Wear Elite 首发，独立 NPU</li></ul></div>
+    <div class="swot-cell"><h4>W · 劣势</h4><ul><li>Wear OS 应用生态不及 watchOS</li><li>¥5,299 价格较高</li><li>仅支持安卓手机配对</li></ul></div>
+    <div class="swot-cell"><h4>O · 机会</h4><ul><li>安卓户外手表无真正对手</li><li>潜水功能差异化显著</li></ul></div>
+    <div class="swot-cell"><h4>T · 威胁</h4><ul><li>Apple Watch Ultra 3 品牌号召力</li><li>Garmin 在专业运动市场根基深厚</li></ul></div>
+  </div>
+
+  <details><summary>📋 全量参数展开</summary><table class="param-table">
+    <tr><td>芯片</td><td>Qualcomm Snapdragon Wear Elite（SW6100），3nm</td></tr>
+    <tr><td>屏幕</td><td>1.52" Super AMOLED, 480×480, 5000nit 峰值, 蓝宝石玻璃</td></tr>
+    <tr><td>电池</td><td>800mAh</td></tr>
+    <tr><td>续航</td><td>官方 60 小时（使用场景待确认）</td></tr>
+    <tr><td>RAM / 存储</td><td>2GB + 64GB</td></tr>
+    <tr><td>表壳</td><td>47mm 钛合金，较前代薄 12%</td></tr>
+    <tr><td>重量</td><td>约 61.5g（媒体来源：BigGo Finance）</td></tr>
+    <tr><td>防护</td><td>10ATM + IP69K + EN13319 + MIL-STD-810H</td></tr>
+    <tr><td>连接</td><td>LTE + BT 6.0 + NFC + Wi-Fi 双频 + GPS/GLONASS/Galileo/BDS</td></tr>
+    <tr><td>系统</td><td>Wear OS 7 / One UI 9 Watch</td></tr>
+    <tr><td>传感器</td><td>心率、血氧、体温、加速计、陀螺仪、气压计、指南针</td></tr>
+    <tr><td>特色功能</td><td>Trail Run、自动潜水追踪、水合指导（Nutrition Alert）</td></tr>
+    <tr><td>上市</td><td>2026-08-07</td></tr>
+    <tr><td>起售价</td><td>¥5,299</td></tr>
+  </table></details>
+
+  <div class="section-title">📎 来源</div>
+  <div class="src-list">
+    · 官方 Newsroom（Level 2）：<a href="https://news.samsung.com/global/galaxy-unpacked-july-2026-a-first-look-at-galaxy-watch-ultra2-and-galaxy-watch9">Samsung Newsroom – Watch Ultra2 & Watch9</a><br>
+    · 官方产品页（Level 1）：<a href="https://www.samsung.com/us/watches/galaxy-watch-ultra2/">Samsung US – Watch Ultra2</a><br>
+    · 媒体来源（Level 3）：SamMobile、Droid-Life、Forbes、Android Authority
+  </div>
+  <div class="nav-btns"><a href="javascript:switchTab(3)">← 上一品</a><a href="javascript:switchTab(5)">下一品 →</a></div>
+</div>
+
+<!-- ==================== TAB 5 Watch9 ==================== -->
+<div class="pane" id="pane5">
+  <h2 class="product-title">Samsung Galaxy Watch9</h2>
+  <div class="product-img-wrap"><img src="https://images.samsung.com.cn/is/image/samsung/p6pim/cn/f2607/gallery/cn-galaxy-watch9-l340-sm-l340nzeachc-553952646?$1164_776_PNG$" alt="Galaxy Watch9"/><div class="product-img-placeholder"><div class="icon">🖼️</div><div>产品图待填入</div><div class="hint">粘贴图片直链到 src="" 后保存刷新。</div></div></div>
+
+  <div class="hero-grid">
+    <div class="hero-card">
+      <h3>核心规格（官方确认）</h3>
+      <div class="spec-row"><span class="k">芯片</span><span class="v">Snapdragon Wear Elite（SW6100）</span></div>
+      <div class="spec-row"><span class="k">屏幕</span><span class="v">1.34"/1.47" Super AMOLED, 3000nit</span></div>
+      <div class="spec-row"><span class="k">电池</span><span class="v">390mAh（40mm）/ 445mAh（44mm）</span></div>
+      <div class="spec-row"><span class="k">续航</span><span class="v">最长 30 小时（AOD 开启）</span></div>
+      <div class="spec-row"><span class="k">尺寸</span><span class="v">40mm / 44mm 两款</span></div>
+      <div class="spec-row"><span class="k">重量</span><span class="v">31.5g（40mm）/ 34g（44mm）</span></div>
+      <div class="spec-row"><span class="k">表壳</span><span class="v">Armor Aluminum 2，蓝宝石玻璃</span></div>
+      <div class="spec-row"><span class="k">防护</span><span class="v">5ATM + IP68 + MIL-STD-810H</span></div>
+      <div class="spec-row"><span class="k">系统</span><span class="v">Wear OS 7 / One UI 9 Watch</span></div>
+      <div class="spec-row"><span class="k">起售价</span><span class="v">¥2,499（蓝牙 40mm）</span></div>
+    </div>
+    <div class="hero-card">
+      <h3>综合评分</h3>
+      <div class="spec-row"><span class="k">屏幕</span><span class="v"><span class="rated"><span class="stars">★★★★☆</span><span class="tip">3000nit Super AMOLED 户外可读性好，但尺寸和分辨率与上代持平。</span></span></span></div>
+      <div class="spec-row"><span class="k">性能</span><span class="v"><span class="rated"><span class="stars">★★★★★</span><span class="tip">从 Exynos W1000 升级到骁龙 Wear Elite，性能与能效均大幅提升。</span></span></span></div>
+      <div class="spec-row"><span class="k">续航</span><span class="v"><span class="rated"><span class="stars">★★★★☆</span><span class="tip">390mAh（较前代 +20%），最长 30h（AOD 开），日常一天半到两天。</span></span></span></div>
+      <div class="spec-row"><span class="k">健康</span><span class="v"><span class="rated"><span class="stars">★★★★★</span><span class="tip">心率/血氧/体温/心电图/血压/睡眠全覆盖 + 新增水合指导，健康监测最全面。</span></span></span></div>
+      <div class="spec-row"><span class="k">生态</span><span class="v"><span class="rated"><span class="stars">★★★★☆</span><span class="tip">Wear OS 7 生态丰富，但仅限安卓配对；vivo Watch5 可跨 iOS。</span></span></span></div>
+    </div>
+  </div>
+
+  <div class="section-title">🚀 Top 5 看点（vs Watch8）</div>
+  <ul class="upgrade-list">
+    <li><span class="badge">芯片</span><div>骁龙 Wear Elite 替代 Exynos W1000，首次在标准款搭载独立 NPU，性能与能效飞跃。</div></li>
+    <li><span class="badge">续航</span><div>390mAh（40mm，前代 325mAh，+20%），最长 30 小时（AOD 开启）。</div></li>
+    <li><span class="badge">健康</span><div>新增水合指导（基于出汗量计算推荐饮水量）、营养提醒升级。</div></li>
+    <li><span class="badge">佩戴</span><div>表带新增空气口袋结构，更贴合更轻便，全天候佩戴更舒适。</div></li>
+    <li><span class="badge">连接</span><div>蓝牙 6.0 + 双频 Wi-Fi，可选 LTE 版。</div></li>
+  </ul>
+
+  <div class="section-title">📊 参数 Diff — 对标：vivo Watch5（2025，¥799）</div>
+  <div class="notice">注：vivo Watch5 为 vivo 系当前在售主力智能手表（2025 年 4 月上市），定位日常健康 + 运动。因 vivo 生态与三星差异较大，两者价格、系统、生态不在同一层面，本表侧重硬件参数对比。</div>
+  <table class="diff-table">
+    <thead><tr><th>维度</th><th>Watch9（40mm）</th><th>vivo Watch5</th><th>差异判断</th></tr></thead>
+    <tbody>
+      <tr><td>芯片</td><td>骁龙 Wear Elite</td><td>恒玄 BES2700BP</td><td><span class="delta up">▲ 性能与 AI 能力大幅领先</span></td></tr>
+      <tr><td>屏幕</td><td>1.34" Super AMOLED 3000nit</td><td>1.43" AMOLED 1500nit</td><td><span class="delta flat">＝ 各有优势（尺寸 vs 亮度）</span></td></tr>
+      <tr><td>电池</td><td>390mAh</td><td>505mAh</td><td><span class="delta down">▼ 容量较小</span></td></tr>
+      <tr><td>续航</td><td>最长 30h（AOD 开）</td><td>最长 22 天（蓝牙模式）</td><td><span class="delta down">▼ 续航远不及（不同系统功耗）</span></td></tr>
+      <tr><td>防水</td><td>5ATM + IP68</td><td>5ATM（50米防水）</td><td><span class="delta flat">＝ 防水等级相当</span></td></tr>
+      <tr><td>系统</td><td>Wear OS 7（App 生态丰富）</td><td>Blue OS 2.0（轻量系统）</td><td><span class="delta up">▲ 应用生态更丰富</span></td></tr>
+      <tr><td>健康传感器</td><td>心率/血氧/体温/ECG/血压</td><td>心率/血氧/血压风险评估</td><td><span class="delta up">▲ ECG + 体温更全面</span></td></tr>
+      <tr><td>重量</td><td>31.5g</td><td>32g</td><td><span class="delta flat">＝ 基本持平</span></td></tr>
+      <tr><td>起售价</td><td>¥2,499</td><td>¥799</td><td><span class="delta down">▼ 贵约 3 倍</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-title">🧠 AI 自动总结</div>
+  <div class="ai-grid">
+    <div class="ai-card"><div class="label">📣 最大卖点</div><p>骁龙 Wear Elite 首发 + 最全面健康传感器（ECG/血压/体温/血氧）+ 3000nit 亮度 + Wear OS 7 应用生态，安卓阵营主流智能手表标杆。</p></div>
+    <div class="ai-card"><div class="label">⚠️ 最大短板</div><p>¥2,499 起售价是 vivo Watch5 的 3 倍；Wear OS 功耗较高导致续航远不及轻量系统手表（30h vs 22 天）；仅限安卓配对。</p></div>
+    <div class="ai-card"><div class="label">🎯 最适合人群</div><p>追求全面健康监测（ECG/血压）+ 丰富 App 生态 + 三星手机联动的安卓用户。</p></div>
+    <div class="ai-card"><div class="label">🔮 市场判断</div><p>骁龙 Wear Elite 是真正的世代升级，但 vivo Watch5 以 1/3 价格提供 7 倍续航 + 基础健康监测，打续航性价比牌足以分流价格敏感用户。</p></div>
+  </div>
+
+  <div class="section-title">📈 关键参数与上代对比（vs Galaxy Watch8 40mm）</div>
+  <div class="chart-wrap">
+    <div class="compare-grid">
+      <div class="compare-item"><div class="compare-label">电池 (mAh，40mm)</div><canvas id="cmpW9_batt"></canvas></div>
+    </div>
+    <table class="mini-table">
+      <tr><td>电池（40mm）</td><td>390mAh（前代 Watch8 40mm 325mAh，+20%）</td></tr>
+      <tr><td>续航</td><td>最长 30h（AOD 开启，前代对应数值未查到可比公开数据，故不作图表对比）</td></tr>
+      <tr><td>亮度</td><td>3000nit（与前代持平，未升级）</td></tr>
+    </table>
+  </div>
+
+  <div class="section-title">🏆 竞品 SWOT</div>
+  <div class="swot">
+    <div class="swot-cell"><h4>S · 优势</h4><ul><li>骁龙 Wear Elite 性能飞跃</li><li>ECG/血压/体温健康传感器最全面</li><li>Wear OS 7 App 生态</li><li>3000nit 亮度</li></ul></div>
+    <div class="swot-cell"><h4>W · 劣势</h4><ul><li>续航不及轻量系统手表</li><li>¥2,499 定价偏高</li><li>仅支持安卓配对</li></ul></div>
+    <div class="swot-cell"><h4>O · 机会</h4><ul><li>与 Galaxy 智能眼镜手势联动</li><li>健康监测合规认证持续扩展</li></ul></div>
+    <div class="swot-cell"><h4>T · 威胁</h4><ul><li>vivo Watch5 以 ¥799 提供 22 天续航</li><li>Apple Watch Series 12 生态壁垒</li></ul></div>
+  </div>
+
+  <details><summary>📋 全量参数展开</summary><table class="param-table">
+    <tr><td>芯片</td><td>Qualcomm Snapdragon Wear Elite（SW6100）</td></tr>
+    <tr><td>屏幕（40mm）</td><td>1.34" Super AMOLED, 438×438, 3000nit, 蓝宝石</td></tr>
+    <tr><td>屏幕（44mm）</td><td>1.47" Super AMOLED, 480×480, 3000nit, 蓝宝石</td></tr>
+    <tr><td>电池</td><td>390mAh（40mm）/ 445mAh（44mm）</td></tr>
+    <tr><td>续航</td><td>最长 30 小时（AOD 开启）</td></tr>
+    <tr><td>RAM / 存储</td><td>2GB + 32GB</td></tr>
+    <tr><td>尺寸（44mm）</td><td>46.0×43.7×8.6mm</td></tr>
+    <tr><td>尺寸（40mm）</td><td>42.7×40.4×8.6mm</td></tr>
+    <tr><td>重量</td><td>31.5g（40mm）/ 34g（44mm）</td></tr>
+    <tr><td>表壳</td><td>Armor Aluminum 2</td></tr>
+    <tr><td>防护</td><td>5ATM + IP68 + MIL-STD-810H</td></tr>
+    <tr><td>连接</td><td>BT 6.0 + NFC + Wi-Fi 双频 + 可选 LTE</td></tr>
+    <tr><td>定位</td><td>GPS / GLONASS / Galileo / BDS</td></tr>
+    <tr><td>传感器</td><td>心率、血氧、体温、ECG、血压、加速计、陀螺仪、气压计、指南针</td></tr>
+    <tr><td>系统</td><td>Wear OS 7 / One UI 9 Watch</td></tr>
+    <tr><td>上市</td><td>2026-08-07</td></tr>
+    <tr><td>起售价</td><td>¥2,499（蓝牙 40mm）</td></tr>
+  </table></details>
+
+  <div class="section-title">📎 来源</div>
+  <div class="src-list">
+    · 官方 Newsroom（Level 2）：<a href="https://news.samsung.com/global/galaxy-unpacked-july-2026-a-first-look-at-galaxy-watch-ultra2-and-galaxy-watch9">Samsung Newsroom</a><br>
+    · 媒体来源（Level 3）：Droid-Life、Android Headlines、SamMobile、Android Authority<br>
+    · 竞品参数：vivo Watch5 来自 Notebookcheck、新浪科技
+  </div>
+  <div class="nav-btns"><a href="javascript:switchTab(4)">← 上一品</a><a href="javascript:switchTab(6)">下一品 →</a></div>
+</div>
+
+<!-- ==================== TAB 6 智能眼镜 ==================== -->
+<div class="pane" id="pane6">
+  <h2 class="product-title">Samsung Galaxy 智能眼镜（Intelligent Eyewear）</h2>
+  <div class="product-img-wrap"><img src="https://res.vrtuoluo.cn/production/admin/uploads/20260723/1784772877336-pasted_image_1784772876393.png" alt="Galaxy Intelligent Eyewear"/><div class="product-img-placeholder"><div class="icon">🖼️</div><div>产品图待填入</div><div class="hint">粘贴图片直链到 src="" 后保存刷新。</div></div></div>
+
+  <div class="hero-grid">
+    <div class="hero-card">
+      <h3>核心规格（官方确认）</h3>
+      <div class="spec-row"><span class="k">平台</span><span class="v">Android XR + Google Gemini</span></div>
+      <div class="spec-row"><span class="k">芯片</span><span class="v">Qualcomm Snapdragon AR1 Gen1</span></div>
+      <div class="spec-row"><span class="k">续航</span><span class="v">单次 9 小时 + 充电盒 7 次满充</span></div>
+      <div class="spec-row"><span class="k">摄像头</span><span class="v">内置（捕捉视觉上下文）</span></div>
+      <div class="spec-row"><span class="k">联名设计</span><span class="v">Gentle Monster / Warby Parker</span></div>
+      <div class="spec-row"><span class="k">显示</span><span class="v">无（第一代为音频+AI交互）</span></div>
+      <div class="spec-row"><span class="k">交互</span><span class="v">语音 / 手势（手势需配合 Watch9）</span></div>
+      <div class="spec-row"><span class="k">起售价</span><span class="v">待确认（国行未公布）</span></div>
+    </div>
+    <div class="hero-card">
+      <h3>综合评分</h3>
+      <div class="spec-row"><span class="k">AI 能力</span><span class="v"><span class="rated"><span class="stars">★★★★★</span><span class="tip">Gemini 多模态 AI + 实时翻译 + 上下文感知 + 视线级 AI 协助，目前最强 AI 眼镜平台。</span></span></span></div>
+      <div class="spec-row"><span class="k">设计</span><span class="v"><span class="rated"><span class="stars">★★★★★</span><span class="tip">Gentle Monster / Warby Parker 联名时尚镜框，多款配色/镜片，不像传统 AR 设备。</span></span></span></div>
+      <div class="spec-row"><span class="k">续航</span><span class="v"><span class="rated"><span class="stars">★★★★☆</span><span class="tip">单次 9 小时 + 充电盒 7 次，全天候可用，但重度拍摄/AI 会缩短。</span></span></span></div>
+      <div class="spec-row"><span class="k">生态依赖</span><span class="v"><span class="rated"><span class="stars">★★★☆☆</span><span class="tip">手势交互需配合 Watch9；部分功能依赖 Galaxy 设备/网络，完整体验有门槛。</span></span></span></div>
+    </div>
+  </div>
+
+  <div class="section-title">🚀 Top 5 看点（新品定位）</div>
+  <ul class="upgrade-list">
+    <li><span class="badge">平台</span><div>基于 Android XR，内置 Gemini，把 AI 带到视线前方，免提自然交互。</div></li>
+    <li><span class="badge">联名</span><div>与 Gentle Monster、Warby Parker 合作，提供多款时尚镜框/配色/镜片。</div></li>
+    <li><span class="badge">续航</span><div>单次 9 小时，充电盒额外 7 次满充。</div></li>
+    <li><span class="badge">视觉</span><div>内置摄像头捕捉所见（白板/会议），整理到 Notes 便于回顾分享。</div></li>
+    <li><span class="badge">交互</span><div>语音/手势控制；实时翻译、路线/目的地导航、实时视觉共享。</div></li>
+  </ul>
+
+  <div class="section-title">📊 参数 Diff — 对标：Ray-Ban Meta (Gen 2)（2025，¥2,580，按查询时汇率折算）</div>
+  <div class="notice">注：vivo/iQOO 2026 年暂无对应智能眼镜产品，故竞品对标从略（vivo/iQOO 该品类暂无对应产品）。竞品选用 Ray-Ban Meta 最新一代 Gen 2（2025年9月上市），替代此前误用的初代 2023 款——同一竞品系列若已有更新换代，须选最新一代，避免拿已被替代的旧款对比。原始定价 $379，按查询时汇率（约1美元=6.8元人民币，2026年7月）折算，仅供参考。</div>
+  <table class="diff-table">
+    <thead><tr><th>维度</th><th>Galaxy 智能眼镜</th><th>Ray-Ban Meta (Gen 2)</th><th>差异判断</th></tr></thead>
+    <tbody>
+      <tr><td>AI 平台</td><td>Gemini（多模态）</td><td>Meta AI</td><td><span class="delta up">▲ Gemini 多模态能力更强</span></td></tr>
+      <tr><td>芯片</td><td>骁龙 AR1 Gen1</td><td>待确认（媒体未明确是否沿用初代平台）</td><td><span class="delta flat">＝ 待确认</span></td></tr>
+      <tr><td>单次续航</td><td>9 小时</td><td>8 小时（较初代4小时提升近2倍）</td><td><span class="delta up">▲ 单次续航略长</span></td></tr>
+      <tr><td>充电盒</td><td>额外 7 次满充</td><td>总计额外提供 48 小时用量</td><td><span class="delta flat">＝ 计量方式不同，均为全天候设计</span></td></tr>
+      <tr><td>摄像头</td><td>内置（分辨率待确认）</td><td>12MP，支持 3K@60fps 视频</td><td><span class="delta down">▼ Ray-Ban Meta 摄像头参数更明确且规格更高</span></td></tr>
+      <tr><td>设计</td><td>GM / Warby Parker 联名</td><td>Wayfarer / Skyler / Headliner 经典款</td><td><span class="delta flat">＝ 各有时尚定位</span></td></tr>
+      <tr><td>显示</td><td>无（Gen 1）</td><td>无</td><td><span class="delta flat">＝ 均为音频+AI，无光学显示</span></td></tr>
+      <tr><td>生态</td><td>Galaxy + Android XR</td><td>Meta / Instagram / WhatsApp</td><td><span class="delta flat">＝ 各有生态优势</span></td></tr>
+      <tr><td>价格</td><td>待确认</td><td>¥2,580（约合$379）</td><td><span class="delta flat">＝ Galaxy 眼镜价格待公布，暂无法比较</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-title">🧠 AI 自动总结</div>
+  <div class="ai-grid">
+    <div class="ai-card"><div class="label">📣 最大卖点</div><p>把 Gemini 装进日常时尚镜框，免提、视线级 AI 协助，是与手机并列的新交互入口。</p></div>
+    <div class="ai-card"><div class="label">⚠️ 最大短板</div><p>手势交互依赖 Watch9；部分功能需 Galaxy 设备/网络；国行定价与上市时间未公布。</p></div>
+    <div class="ai-card"><div class="label">🎯 最适合人群</div><p>追求前沿 AI 体验、常需免提导航/翻译/记录，且接受眼镜形态的早期尝鲜者。</p></div>
+    <div class="ai-card"><div class="label">🔮 市场判断</div><p>"时尚+Gemini"切入，避开笨重头显，但生态门槛与隐私争议是普及关键。</p></div>
+  </div>
+
+  <div class="section-title">📈 关键参数</div>
+  <div class="chart-wrap">
+    <table class="mini-table">
+      <tr><td>平台</td><td>Android XR + Gemini（Google 合作）</td></tr>
+      <tr><td>芯片</td><td>Qualcomm Snapdragon AR1 Gen1</td></tr>
+      <tr><td>续航</td><td>单次 9 小时，充电盒额外 7 次满充</td></tr>
+      <tr><td>摄像头</td><td>内置，捕捉视觉上下文</td></tr>
+      <tr><td>联名设计</td><td>Gentle Monster / Warby Parker</td></tr>
+      <tr><td>核心体验</td><td>Stay in the moment / Capturing context / Real-time interaction / Context-aware / Live visual sharing</td></tr>
+    </table>
+  </div>
+
+  <div class="section-title">🏆 竞品 SWOT</div>
+  <div class="swot">
+    <div class="swot-cell"><h4>S · 优势</h4><ul><li>Android XR + Gemini 生态</li><li>GM/Warby Parker 时尚设计</li><li>9h+充电盒全天候</li><li>视线级免提 AI</li></ul></div>
+    <div class="swot-cell"><h4>W · 劣势</h4><ul><li>手势需搭配 Watch9</li><li>部分功能依赖 Galaxy/网络</li><li>定价未公布</li></ul></div>
+    <div class="swot-cell"><h4>O · 机会</h4><ul><li>眼镜成新交互入口</li><li>时尚联名降低尝鲜门槛</li></ul></div>
+    <div class="swot-cell"><h4>T · 威胁</h4><ul><li>隐私/佩戴顾虑</li><li>Meta Ray-Ban 已有先发优势</li><li>vivo/iQOO 暂无对标，但小米 AI 眼镜等行业竞品涌现</li></ul></div>
+  </div>
+
+  <details><summary>📋 全量参数展开</summary><table class="param-table">
+    <tr><td>平台</td><td>Android XR + Gemini</td></tr>
+    <tr><td>芯片</td><td>Qualcomm Snapdragon AR1 Gen1</td></tr>
+    <tr><td>续航</td><td>单次 9 小时，充电盒额外 7 次满充（随网络/功能/设置变化）</td></tr>
+    <tr><td>摄像头</td><td>内置，捕捉视觉上下文</td></tr>
+    <tr><td>联名</td><td>Gentle Monster、Warby Parker</td></tr>
+    <tr><td>交互</td><td>语音/手势（手势需 Watch9）、触控</td></tr>
+    <tr><td>核心体验</td><td>Stay in the moment、Capturing context、Real-time interaction、Context-aware assistance、Live visual sharing</td></tr>
+    <tr><td>显示</td><td>无（第一代，代号 Jinju；第二代 Haean 预计 2027 年带 micro-LED 显示）</td></tr>
+    <tr><td>上市</td><td>2026 年秋季部分市场（具体日期待确认）</td></tr>
+    <tr><td>起售价</td><td>待确认（国行未公布）</td></tr>
+  </table></details>
+
+  <div class="section-title">📎 来源</div>
+  <div class="src-list">
+    · 官方 Newsroom（Level 2）：<a href="https://news.samsung.com/global/samsung-brings-galaxy-ecosystem-into-everyday-eyewear">Samsung Newsroom – Intelligent Eyewear</a><br>
+    · 媒体来源（Level 3）：PhoneArena、Gizmochina、idevice.com、Geeky Gadgets<br>
+    · 竞品参数：Meta 官方博客（<a href="https://about.fb.com/news/2025/09/ray-ban-meta-gen-2-better-battery-life-video-capture/">Ray-Ban Meta Gen 2 发布稿</a>）、Wareable、Android Central
+  </div>
+  <div class="nav-btns"><a href="javascript:switchTab(5)">← 上一品</a><a class="disabled" href="javascript:;">下一品 →</a></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script>
+var chartsDone={};
+// 每个指标一张双柱图：前代 vs 本代，单位必须一致，不跨单位混合
+function renderCompare(canvasId, prevVal, currVal, unit){
+  var el=document.getElementById(canvasId); if(!el) return;
+  new Chart(el,{type:"bar",
+    data:{labels:["前代","本代"],datasets:[{data:[prevVal,currVal],backgroundColor:["#c9ccd6","#1f4fd8"],borderRadius:6}]},
+    options:{responsive:true,plugins:{legend:{display:false},tooltip:{callbacks:{label:function(ctx){return ctx.parsed.y+unit;}}}},
+      scales:{y:{beginAtZero:true,ticks:{callback:function(v){return v+unit;}}}}}});
+}
+var compareCfg={
+  1:[["cmpFold8U_thick",4.2,4.1,"mm"],["cmpFold8U_batt",4400,5000,"mAh"],["cmpFold8U_uw",12,50,"MP"]],
+  2:[["cmpFold8_weight",215,201,"g"],["cmpFold8_batt",4400,4800,"mAh"],["cmpFold8_thick",4.2,4.5,"mm"]],
+  3:[["cmpFlip8_weight",188,180,"g"],["cmpFlip8_thick",6.5,6.1,"mm"],["cmpFlip8_batt",4300,4300,"mAh"]],
+  4:[["cmpWU2_batt",590,800,"mAh"],["cmpWU2_bright",3000,5000,"nit"],["cmpWU2_thick",12.1,10.65,"mm"]],
+  5:[["cmpW9_batt",325,390,"mAh"]]
+};
+function drawCharts(n){
+  if(chartsDone[n]) return;
+  var list=compareCfg[n]; if(!list) return;
+  list.forEach(function(row){renderCompare(row[0],row[1],row[2],row[3]);});
+  chartsDone[n]=true;
+}
+function switchTab(n){
+  document.querySelectorAll(".tab").forEach(b=>b.classList.remove("active"));
+  document.querySelectorAll(".pane").forEach(p=>p.classList.remove("active"));
+  document.querySelector('[data-tab="'+n+'"]').classList.add("active");
+  document.getElementById("pane"+n).classList.add("active");
+  window.scrollTo({top:0,behavior:"smooth"});
+  drawCharts(n);
+}
+document.querySelectorAll(".tab").forEach(b=>
+  b.addEventListener("click",()=>switchTab(+b.dataset.tab)));
+</script>
+</body>
+</html>
